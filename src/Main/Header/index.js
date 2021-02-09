@@ -16,25 +16,27 @@ export default function Header() {
                         React Testing
                     </Menu.Item></Link>
 
-                    <Dropdown item simple text='Drag & Drop'>
+                    <Dropdown item simple text='Drag/Drop/Pdf'>
                         <Dropdown.Menu>
+                            <Dropdown.Header>Drag & Drop</Dropdown.Header>
                             <Dropdown.Item>React Rnd</Dropdown.Item>
                             <Dropdown.Item>React Dnd</Dropdown.Item>
                             <Dropdown.Divider />
-                            <Dropdown.Header>Header Item</Dropdown.Header>
+                            <Dropdown.Header>PDF</Dropdown.Header>
+                            <Dropdown.Item>Pdf Js</Dropdown.Item>
+                            <Dropdown.Divider />
+                            <Dropdown.Header>Others</Dropdown.Header>
                             <Dropdown.Item>
                                 <i className='dropdown icon' />
-                                <span className='text'>Submenu</span>
+                                <span className='text'>Integrated Tests</span>
                                 <Dropdown.Menu>
-                                    <Dropdown.Item>List Item</Dropdown.Item>
-                                    <Dropdown.Item>List Item</Dropdown.Item>
+                                    <Dropdown.Item>Pdf With Drag & Drop</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown.Item>
-                            <Dropdown.Item>List Item</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                     <Link to="/about"><Menu.Item>
-                        About
+                        Placeholder
                     </Menu.Item></Link>
                 </Container>
             </Menu>

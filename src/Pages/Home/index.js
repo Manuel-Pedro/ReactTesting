@@ -1,12 +1,9 @@
-import React from "react"
-import { Header } from "semantic-ui-react";
+import React from 'react';
+import { Header } from 'semantic-ui-react';
 
 export default function Home() {
-    return <>
-        <Header as='h1'>Semantic UI React Fixed Template</Header>
-        <p>This is a basic fixed menu template using fixed size containers.</p>
-        <p>
-            A text container is used for the main container, which is useful for single column layouts.
-        </p>
-    </>;
+    return <div style={{ height : '100%' }}>
+        <Header as='h1'>React Test Homepage</Header>
+        <p>Navigate to the desire test from the menu on the top of the page</p>
+    </div>;
 };
