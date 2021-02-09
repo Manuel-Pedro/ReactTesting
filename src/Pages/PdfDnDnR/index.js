@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ReactRnD = () => {
+const PdfDnDnR = () => {
     return (
         <div style={{ height : '100%' }}>
-            <h2>ReactRnD</h2>
+            <h2>PdfDnDnR</h2>
         </div>
     );
 };
 
-export default ReactRnD;
+export default PdfDnDnR;
