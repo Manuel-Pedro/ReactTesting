@@ -7,9 +7,13 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
+import Main from "./Main";
 
 export default function App() {
-  return (
+  return(
+    <Main/>
+  )
+/*   return (
     <Router>
       <div>
         <ul>
@@ -37,16 +41,9 @@ export default function App() {
         </Switch>
       </div>
     </Router>
-  );
+  ); */
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
 
 function Topics() {
   let match = useRouteMatch();
