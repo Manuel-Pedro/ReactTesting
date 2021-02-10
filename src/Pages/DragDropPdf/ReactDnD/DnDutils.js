@@ -1,9 +1,10 @@
 import { useDrag, useDrop } from 'react-dnd';
 import React, { useRef } from 'react';
 
-export function LocalBox({ children }) {
+export function LocalBox({ children, onDrop }) {
     const ref = useLocalDrop((item, pos) => {
         console.log('You dropped the item ' + item.name + ' on the pos:', pos);
+        onDrop(item, pos);
     });
     return <div ref={ref} style={{ position : 'absolute', width : '100%', height : '100%', backgroundColor : 'red' }}>{children}</div>;
 }
@@ -39,4 +40,10 @@ export function useLocalDrop(onDrop) {
         ref.current = elem;
         dropTarget(ref);
     };
+}
+
+export function getUniqueId() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1);
 }
