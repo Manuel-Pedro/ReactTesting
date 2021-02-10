@@ -1,26 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+<head>
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
     <title>React Testing</title>
     <style>
-      #root{
-        height: 100%;
-      }
+        #root {
+            height: 100%;
+        }
     </style>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <script src="./pdfjs/build/pdf.js"></script>
+    <link rel="stylesheet" type="text/css" href="./pdfjs/web/viewer.css"/>
+    <style>
+        body {
+            position: relative;
+        }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        .textLayer > div {
+            position: absolute;
+        }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    </style>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = './pdfjs/build/pdf.worker.js';
+        window.DEFAULT_SCALE = 1;
+        window.pdfjsLib = pdfjsLib;
+        window.LOADED_PAGES = new Map();
+        var loadingTask = pdfjsLib.getDocument('./assets/sample.pdf');
+        loadingTask.promise.then(function (pdf) {
+            window.pdf = pdf;
+            window.PDF_LOADED = true;
+            window.dispatchEvent(new Event('PDF_LOADED'));
+        });
+    </script>
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root"></div>
+</body>
 </html>

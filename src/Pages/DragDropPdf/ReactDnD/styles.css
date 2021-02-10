@@ -1,0 +1,25 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.GlobalBox {
+    width: 100vw;
+    height: 100vh;
+}
+
+.LocalBox {
+    border: solid black 1px;
+    top: 100px;
+    left: 100px;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+}
+
+.Thing {
+    background-color: black;
+    top: 100px;
+    left: 400px;
+    position: absolute;
+}

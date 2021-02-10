@@ -31,6 +31,7 @@ export default function Header() {
                             <span className='text'>Integrated Tests</span>
                             <Dropdown.Menu>
                                 <Link to="/PdfDnDnR"><Dropdown.Item style={{color:"black"}}>Pdf With Drag & Drop</Dropdown.Item></Link>
+                                <Link to="/DnDnR"><Dropdown.Item style={{color:"black"}}>DnDnR</Dropdown.Item></Link>
                             </Dropdown.Menu>
                         </Dropdown.Item>
                     </Dropdown.Menu>

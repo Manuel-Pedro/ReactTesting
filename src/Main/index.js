@@ -8,23 +8,25 @@ import {
     Route,
 } from 'react-router-dom';
 import Home from '../Pages/Home';
-import Placeholder from '../Pages/Placeholder';
-import PdfDnDnR from '../Pages/PdfDnDnR';
-import ReactDnD from '../Pages/ReactDnD';
-import ReactPdf from '../Pages/ReactPdf';
-import ReactRnD from '../Pages/ReactRnD';
-import Footer from './Footer';
+import Placeholder from '../Pages/DragDropPdf/Placeholder';
+import PdfDnDnR from '../Pages/DragDropPdf/PdfDnDnR';
+import ReactDnD from '../Pages/DragDropPdf/ReactDnD';
+import ReactPdf from '../Pages/DragDropPdf/ReactPdf/index.BACK';
+import ReactRnD from '../Pages/DragDropPdf/ReactRnD';
 import Header from './Header';
+import DnDnR from '../Pages/DragDropPdf/DnDnR';
 
 const FixedMenuLayout = () => (
     <Router>
         <div style={{ position : 'relative', display : 'flex', flexDirection : 'column', height : '100%' }}>
             <Header/>
-            <Container text style={{ marginTop : '7em', height : '100%' }}>
+            <Container text style={{ paddingTop : '50px', height : '100%' }}>
                 <Switch>
+                    {/*Placeholder remove in future when more tabs (also improve english)*/}
                     <Route path="/about">
                         <Placeholder/>
                     </Route>
+                    {/*Drag/Drop/Pdf*/}
                     <Route path="/RnD">
                         <ReactRnD/>
                     </Route>
@@ -37,12 +39,16 @@ const FixedMenuLayout = () => (
                     <Route path="/PdfDnDnR">
                         <PdfDnDnR/>
                     </Route>
+                    <Route path="/DnDnR">
+                        <DnDnR/>
+                    </Route>
+
+                    {/*Home*/}
                     <Route path="/">
                         <Home/>
                     </Route>
                 </Switch>
             </Container>
-            <Footer/>
         </div>
     </Router>
 );
