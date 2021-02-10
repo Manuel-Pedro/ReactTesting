@@ -13,10 +13,10 @@ export default function Footer() {
         <Segment inverted vertical style={{ margin : '2em 0em 0em', padding : '2em 0em' }}>
             <Container textAlign='center'>
                 <List horizontal inverted divided link size='small'>
-                    <Link to="/"><List.Item as='a' href='#'>
+                    <Link to="/"><List.Item>
                         Home
                     </List.Item></Link>
-                    <List.Item as='a' href='#'>
+                    <List.Item>
                         Top of the Page
                     </List.Item>
                 </List>
