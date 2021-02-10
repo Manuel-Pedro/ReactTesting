@@ -1,6 +1,6 @@
 import React from 'react';
 import { handleWindowScroll, onPdfLoad } from '../pdfjsutils';
-import { LocalBox, getUniqueId } from '../../ReactDnD/DnDutils';
+import { LocalBox2, getUniqueId } from '../../ReactDnD/DnDutils';
 import { Map } from 'immutable';
 import { Rnd } from 'react-rnd';
 
@@ -34,7 +34,7 @@ const RightContainer = () => {
     return (
         <div style={styles.root}>
             <h2>ReactPdf</h2>
-            <LocalBox onDrop={onDrop}>
+            <LocalBox2 onDrop={onDrop}>
                 <div id="viewer-PdfDnRnR" className="pdfViewer" />
                 {items.entrySeq().map(([key, value]) => {
                     return (
@@ -65,7 +65,7 @@ const RightContainer = () => {
                         </Rnd>
                     );
                 })}
-            </LocalBox>
+            </LocalBox2>
         </div>
     );
 };

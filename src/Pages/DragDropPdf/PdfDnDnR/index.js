@@ -11,12 +11,12 @@ const PdfDnDnR = () => {
         <div style={{ height: '100%', position: 'relative', display: 'flex', flexDirection: 'column' }}>
             <h2>Demo for a PDF with Drag and drop components with resize </h2>
             <div style={styles.bars}>Header</div>
-            <DndProvider backend={HTML5Backend}>
-                <div style={styles.root}>
+            <div style={styles.root}>
+                <DndProvider backend={HTML5Backend}>
                     <LeftBar />
                     <RightContainer />
-                </div>
-            </DndProvider>
+                </DndProvider>
+            </div>
             <div style={styles.bars}>Footer</div>
         </div>
     );
