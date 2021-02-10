@@ -15,12 +15,13 @@ import ReactPdf from '../Pages/DragDropPdf/ReactPdf/index.BACK';
 import ReactRnD from '../Pages/DragDropPdf/ReactRnD';
 import Header from './Header';
 import DnDnR from '../Pages/DragDropPdf/DnDnR';
+import DnRnPdf from '../Pages/DragDropPdf/DnRnPdf';
 
 const FixedMenuLayout = () => (
     <Router>
         <div style={{ position : 'relative', display : 'flex', flexDirection : 'column', height : '100%' }}>
             <Header/>
-            <Container text style={{ paddingTop : '50px', height : '100%' }}>
+            <Container style={{ paddingTop : '50px', height : '100%', paddingBottom: "10px" }}>
                 <Switch>
                     {/*Placeholder remove in future when more tabs (also improve english)*/}
                     <Route path="/about">
@@ -42,7 +43,9 @@ const FixedMenuLayout = () => (
                     <Route path="/DnDnR">
                         <DnDnR/>
                     </Route>
-
+                    <Route path="/DnRnPdf">
+                        <DnRnPdf/>
+                    </Route>
                     {/*Home*/}
                     <Route path="/">
                         <Home/>
