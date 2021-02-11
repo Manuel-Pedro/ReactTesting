@@ -8,24 +8,35 @@
             height: 100%;
         }
     </style>
-    <script src="./pdfjs/build/pdf.js"></script>
-    <link rel="stylesheet" type="text/css" href="./pdfjs/web/viewer.css"/>
+    <link rel="stylesheet" href="./modules/web/pdf_viewer.css">
+    <script src="./modules/build/pdf.js"></script>
+    <script src="./modules/web/pdf_viewer.js"></script>
+    <!--    <link rel="stylesheet" type="text/css" href="./pdfjs/web/viewer.css"/>-->
     <style>
-        body {
+        /*   body {
+               position: relative;
+           }
+
+           .textLayer > div {
+               position: absolute;
+           }*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
             position: relative;
+            margin-top: 10px;
         }
-
-        .textLayer > div {
-            position: absolute;
-        }
-
     </style>
     <script>
-        pdfjsLib.GlobalWorkerOptions.workerSrc = './pdfjs/build/pdf.worker.js';
-        window.DEFAULT_SCALE = 1;
+        pdfjsLib.GlobalWorkerOptions.workerSrc = './modules/build/pdf.worker.js';
+        window.DEFAULT_SCALE = 1.0;
         window.pdfjsLib = pdfjsLib;
+        window.pdfjsViewer = pdfjsViewer;
         window.LOADED_PAGES = new Map();
-        var loadingTask = pdfjsLib.getDocument('./assets/sample.pdf');
+        var loadingTask = pdfjsLib.getDocument('./assets/prefilled_f1040.pdf');
         loadingTask.promise.then(function (pdf) {
             window.pdf = pdf;
             window.PDF_LOADED = true;

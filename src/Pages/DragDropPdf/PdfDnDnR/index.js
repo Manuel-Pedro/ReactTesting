@@ -8,13 +8,13 @@ const PdfDnDnR = () => {
     const styles = getStyles();
 
     return (
-        <div style={{ height: '100%', position: 'relative', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ height : '100%', position : 'relative', display : 'flex', flexDirection : 'column' }}>
             <h2>Demo for a PDF with Drag and drop components with resize </h2>
             <div style={styles.bars}>Header</div>
             <div style={styles.root}>
                 <DndProvider backend={HTML5Backend}>
-                    <LeftBar />
-                    <RightContainer />
+                    <LeftBar/>
+                    <RightContainer/>
                 </DndProvider>
             </div>
             <div style={styles.bars}>Footer</div>
@@ -24,18 +24,18 @@ const PdfDnDnR = () => {
 
 const getStyles = () => {
     return {
-        root: {
-            display: 'flex',
-            width: '100%',
-            height: '100%',
-            flex: 1,
-            backgroundColor: 'grey',
-            overflow: 'auto'
+        root : {
+            display : 'flex',
+            width : '100%',
+            height : '100%',
+            flex : 1,
+            backgroundColor : 'grey',
+            paddingBottom: '10px'
         },
-        bars: {
-            padding: '15px 25px',
-            backgroundColor: 'white',
-            border: '1px dotted black'
+        bars : {
+            padding : '15px 25px',
+            backgroundColor : 'white',
+            border : '1px dotted black'
         }
     };
 };

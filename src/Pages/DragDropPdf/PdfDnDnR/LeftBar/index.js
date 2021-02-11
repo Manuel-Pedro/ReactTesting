@@ -1,5 +1,5 @@
 import React from 'react';
-import { Thing } from '../../ReactDnD/DnDutils';
+import { Field } from './Field';
 
 const LeftBar = () => {
     const styles = getStyles();
@@ -7,12 +7,8 @@ const LeftBar = () => {
     return (
         <div style={styles.outerContainer}>
             <div style={styles.innerContainer}>
-                <div style={{ display: 'flex', marginRight: '10px', height: '100%', flexDirection: 'column', width: '80px' }}>
-                    <Thing name={'test1'} color={'black'} />
-                    <Thing name={'test2'} color={'yellow'} />
-                    <Thing name={'test3'} color={'green'} />
-                    <Thing name={'test4'} color={'white'} />
-                </div>
+                <Field name={'sign'} color={'blue'}/>
+                <Field name={'date'} color={'red'}/>
             </div>
         </div>
     );
@@ -20,20 +16,20 @@ const LeftBar = () => {
 
 const getStyles = () => {
     return {
-        outerContainer: {
-            position: 'absolute',
-            display: 'flex',
-            marginRight: '10px',
-            height: '100%',
-            flexDirection: 'column',
-            width: '80px'
+        outerContainer : {
+            display : 'flex',
+            marginRight : '10px',
+            height : '100%',
+            flexDirection : 'column',
+            width : '100px'
         },
-        innerContainer: {
-            margin: '16px 20px',
-            height: '100%',
-            display: 'flex',
-            backgroundColor: 'white',
-            borderRadius: '4px'
+        innerContainer : {
+            margin : '10px 20px 0px',
+            height : '100%',
+            display : 'flex',
+            backgroundColor : 'white',
+            borderRadius : '4px',
+            flexDirection : 'column',
         }
     };
 };

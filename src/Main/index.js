@@ -5,7 +5,7 @@ import Home from '../Pages/Home';
 import Placeholder from '../Pages/DragDropPdf/Placeholder';
 import PdfDnDnR from '../Pages/DragDropPdf/PdfDnDnR';
 import ReactDnD from '../Pages/DragDropPdf/ReactDnD';
-import ReactPdf from '../Pages/DragDropPdf/ReactPdf/index';
+import ReactPdf from '../Pages/DragDropPdf/ReactPdf/index.BACK';
 import ReactRnD from '../Pages/DragDropPdf/ReactRnD';
 import Header from './Header';
 import DnDnR from '../Pages/DragDropPdf/DnDnR';
@@ -15,7 +15,7 @@ const FixedMenuLayout = () => (
     <Router>
         <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', height: '100%' }}>
             <Header />
-            <Container style={{ paddingTop: '50px', height: '100%', paddingBottom: '10px' }}>
+            <Container fluid style={{ paddingTop: '50px', height: '100%', paddingBottom: '10px' }}>
                 <Switch>
                     {/*Placeholder remove in future when more tabs (also improve english)*/}
                     <Route path="/about">
