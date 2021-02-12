@@ -6,8 +6,10 @@ import DraggableItems from './DraggableItems';
 
 const DropZones = ({ isPdfLoaded }) => {
     const [zones, setZones] = useState([]);
+    const [selectedItem, setSelectedItem] = useState(undefined);
     const [pageItems, setItems] = useState(new Map()); //Map of maps (first keys are the zones id) (for the second keys its using a combination of the item name and a unique id)
-    console.log('Current Items to render -> ', pageItems);
+    console.log('Selected Item -> ', selectedItem);
+    // console.log('Current Items to render -> ', pageItems);
     const getZoneLocations = () => {
         let pagesDivs = document.getElementsByClassName('page');
         let zonesToCreate = [];
@@ -25,11 +27,35 @@ const DropZones = ({ isPdfLoaded }) => {
         return zonesToCreate;
     };
 
+    const onMouseDown = (e) => {
+        debugger
+        if (selectedItem) {
+            debugger
+            if (e.target && e.target.className === 'draggableItemClass') {
+                let data = e.target.dataset;
+                if (selectedItem.zoneId !== data.zoneId && selectedItem.itemId === data.itemId) {
+                    setSelectedItem({ zoneId : data.zoneId, itemId : data.itemId });
+                }
+            } else {
+                setSelectedItem(undefined);
+            }
+        } else {
+            if (e.target && e.target.className === 'draggableItemClass') {
+                let data = e.target.dataset;
+                setSelectedItem({ zoneId : data.zoneId, itemId : data.itemId });
+            }
+        }
+    };
+
     useEffect(() => {
         if (isPdfLoaded) {
             setZones(getZoneLocations());
         }
     }, [isPdfLoaded]);
+
+    useEffect(() => {
+        window.addEventListener('mousedown', onMouseDown);
+    }, []);
 
     if (!isPdfLoaded || !zones || zones.length === 0)
         return null;
@@ -38,9 +64,11 @@ const DropZones = ({ isPdfLoaded }) => {
         console.log(`PDF -> item ${item.name} dropped on zone ${zone.id} on the following pos:`, pos);
         let currentItems = pageItems.get(zone.id);
         //INFO to see items structure see the commentary on initialization
+        let itemId = item.name + getUniqueId();
+        setSelectedItem({ itemId, zoneId : zone.id });
         if (!currentItems) {
             setItems(pageItems.set(zone.id, new Map({
-                [item.name + getUniqueId()] : {
+                [itemId] : {
                     proprieties : item,
                     ...getDefaultSize(item),
                     x : pos.x,
@@ -48,7 +76,7 @@ const DropZones = ({ isPdfLoaded }) => {
                 }
             })));
         } else {
-            setItems(pageItems.set(zone.id, currentItems.set(item.name + getUniqueId(), {
+            setItems(pageItems.set(zone.id, currentItems.set(itemId, {
                 proprieties : item,
                 ...getDefaultSize(item),
                 x : pos.x,

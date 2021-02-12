@@ -8,7 +8,7 @@ const style = {
     justifyContent : 'center'
 };
 
-const DraggableItems = ({ items, zone, setItems, pageItems }) => {
+const DraggableItems = ({  items, zone, setItems, pageItems }) => {
     if (!items) {
         return null;
     }
@@ -35,7 +35,7 @@ const DraggableItems = ({ items, zone, setItems, pageItems }) => {
                         setItems(pageItems.set(zone.id, items.set(key, { ...item, width : ref.offsetWidth, height : ref.offsetHeight, ...position })));
                     }}
                 >
-                    <DraggableField item={item}/>
+                    <DraggableField item={item} itemKey={key} zone={zone}/>
                 </Rnd>;
             })}
         </>

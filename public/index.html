@@ -36,7 +36,7 @@
         window.pdfjsLib = pdfjsLib;
         window.pdfjsViewer = pdfjsViewer;
         window.LOADED_PAGES = new Map();
-        var loadingTask = pdfjsLib.getDocument('./assets/prefilled_f1040.pdf');
+        var loadingTask = pdfjsLib.getDocument('./assets/novabase.pdf');
         loadingTask.promise.then(function (pdf) {
             window.pdf = pdf;
             window.PDF_LOADED = true;

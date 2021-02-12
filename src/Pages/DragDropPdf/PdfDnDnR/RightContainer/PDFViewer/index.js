@@ -6,14 +6,17 @@ function loadPdf(onPdfLoad) {
     let pagePromiseArray = [];
     for ( let num = 1; num <= window.pdf.numPages; num++ ) {
         pagePromiseArray.push(window.pdf.getPage(num).then((pdfPage) => {
+           /* pdfPage.getAnnotations().then(items => {
+                console.log('Gotten the following annotations for the page number' + num + ': ', items);
+            });*/
             let pdfPageView = new window.pdfjsViewer.PDFPageView({
                 container : canvasContainer,
                 id : num,
                 scale : window.DEFAULT_SCALE,
                 defaultViewport : pdfPage.getViewport({ scale : window.DEFAULT_SCALE }),
                 eventBus,
-                annotationLayerFactory : new window.pdfjsViewer.DefaultAnnotationLayerFactory(),
-                renderInteractiveForms : true,
+                // annotationLayerFactory : new window.pdfjsViewer.DefaultAnnotationLayerFactory(),
+                renderInteractiveForms : false,
             });
             pdfPageView.setPdfPage(pdfPage);
             return pdfPageView.draw();

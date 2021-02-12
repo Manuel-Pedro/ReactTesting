@@ -15,7 +15,7 @@ const FixedMenuLayout = () => (
     <Router>
         <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', height: '100%' }}>
             <Header />
-            <Container fluid style={{ paddingTop: '50px', height: '100%', paddingBottom: '10px' }}>
+            <Container fluid style={{ paddingTop: '50px', height: '100%'}}>
                 <Switch>
                     {/*Placeholder remove in future when more tabs (also improve english)*/}
                     <Route path="/about">

@@ -1,13 +1,13 @@
-import React, {useState}from 'react';
+import React, { useState } from 'react';
 import PDFViewer from './PDFViewer';
-import DropZones from './DropZones';
+import DropZones from './DropZones/index.new';
 
 const RightContainer = () => {
 
     const [isPdfLoaded, setPdfLoaded] = useState(false);
 
     const onPdfLoad = () => {
-        setPdfLoaded(true)
+        setPdfLoaded(true);
     };
 
     const styles = getStyles();
