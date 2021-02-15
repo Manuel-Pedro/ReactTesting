@@ -1,25 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico"/>
     <title>React Testing</title>
+    <script src="./polyfill/ie-polyfil-full.js"></script>
+    <link rel="stylesheet" href="./modules/es5/web/pdf_viewer.css">
+    <script src="./modules/es5/build/pdf.js"></script>
+    <script src="./modules/es5/web/pdf_viewer.js"></script>
     <style>
-        #root {
-            height: 100%;
-        }
-    </style>
-    <link rel="stylesheet" href="./modules/web/pdf_viewer.css">
-    <script src="./modules/build/pdf.js"></script>
-    <script src="./modules/web/pdf_viewer.js"></script>
-    <!--    <link rel="stylesheet" type="text/css" href="./pdfjs/web/viewer.css"/>-->
-    <style>
-        /*   body {
-               position: relative;
-           }
-
-           .textLayer > div {
-               position: absolute;
-           }*/
         * {
             margin: 0;
             padding: 0;
@@ -29,14 +20,21 @@
             position: relative;
             margin-top: 10px;
         }
+
+        #root {
+            height: 100%;
+        }
     </style>
     <script>
-        pdfjsLib.GlobalWorkerOptions.workerSrc = './modules/build/pdf.worker.js';
-        window.DEFAULT_SCALE = 1.0;
+        //Mandatory
         window.pdfjsLib = pdfjsLib;
         window.pdfjsViewer = pdfjsViewer;
+        pdfjsLib.GlobalWorkerOptions.workerSrc = './modules/es5/build/pdf.worker.js';
+
+        //Demo dependent
+        window.DEFAULT_SCALE = 1.0;
         window.LOADED_PAGES = new Map();
-        var loadingTask = pdfjsLib.getDocument('./assets/novabase.pdf');
+        var loadingTask = pdfjsLib.getDocument('./assets/prefilled_f1040.pdf');
         loadingTask.promise.then(function (pdf) {
             window.pdf = pdf;
             window.PDF_LOADED = true;

@@ -98,7 +98,7 @@ class DropZones extends Component {
     };
 
     getZonesRender = () => {
-        const { zones, pageItems } = this.state;
+        const { zones, pageItems, selectedItem } = this.state;
         let zonesToReturn = [];
         let topOffset = zones[0].top;
         zones.forEach((zone, index) => {
@@ -109,7 +109,7 @@ class DropZones extends Component {
                 childId={'dropPage' + zone.pageNumber}
                 styles={{ position : 'absolute', top : topOffset, width : zone.width, height : zone.height }}
             >
-                <DraggableItems items={pageItems.get(zone.id)} pageItems={pageItems} zone={zone} setItems={this.setPageItems}/>
+                <DraggableItems selectedItem={selectedItem} items={pageItems.get(zone.id)} pageItems={pageItems} zone={zone} setItems={this.setPageItems}/>
             </DropBox>);
             topOffset += (zone.height + 10);
         });
@@ -123,9 +123,6 @@ class DropZones extends Component {
         if (!isPdfLoaded || !zones || zones.length === 0)
             return null;
 
-        const { selectedItem } = this.state;
-        //console.log('Selected Item -> ', selectedItem);
-        // console.log('Current Items to render -> ', pageItems);
         return (
             <>
                 {this.getZonesRender().map(e => e)}

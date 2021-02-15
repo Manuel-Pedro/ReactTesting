@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 
-function loadPdf(onPdfLoad) {
+function loadPdf(onPdfLoad, setPageSettings) {
     let canvasContainer = document.getElementById('holder');
     let eventBus = new window.pdfjsViewer.EventBus();
     let pagePromiseArray = [];
     for ( let num = 1; num <= window.pdf.numPages; num++ ) {
         pagePromiseArray.push(window.pdf.getPage(num).then((pdfPage) => {
-           pdfPage.getAnnotations().then(items => {
-                console.log('Gotten the following annotations for the page number' + num + ': ', items);
-            });
+            /* pdfPage.getAnnotations().then(items => {
+             console.log('Gotten the following annotations for the page number' + num + ': ', items);
+             });*/
             let pdfPageView = new window.pdfjsViewer.PDFPageView({
                 container : canvasContainer,
                 id : num,
@@ -22,20 +22,20 @@ function loadPdf(onPdfLoad) {
             return pdfPageView.draw();
         }));
     }
+
     Promise.all(pagePromiseArray).then(() => {
         onPdfLoad && onPdfLoad();
     });
 }
 
-const PDFViewer = ({ onPdfLoad, children }) => {
+const PDFViewer = ({ onPdfLoad, children, setPageSettings }) => {
 
     useEffect(() => {
         if (window.PDF_LOADED) {
-            loadPdf(onPdfLoad);
+            loadPdf(onPdfLoad, setPageSettings);
         } else {
-            window.addEventListener('PDF_LOADED', () => loadPdf(onPdfLoad));
+            window.addEventListener('PDF_LOADED', () => loadPdf(onPdfLoad, setPageSettings));
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

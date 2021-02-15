@@ -3827,7 +3827,7 @@ class PDFDocument {
     }
 
     try {
-      const fields = acroForm.get("Fields");
+      const fields = acroForm.get("Field");
       const hasFields = Array.isArray(fields) && fields.length > 0;
       formInfo.hasFields = hasFields;
       const xfa = acroForm.get("XFA");
@@ -4047,7 +4047,7 @@ class PDFDocument {
     const allFields = Object.create(null);
     const fieldPromises = new Map();
 
-    for (const fieldRef of this.catalog.acroForm.get("Fields")) {
+    for (const fieldRef of this.catalog.acroForm.get("Field")) {
       this._collectFieldObjects("", fieldRef, fieldPromises);
     }
 
