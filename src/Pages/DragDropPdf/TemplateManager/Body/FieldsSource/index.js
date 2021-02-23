@@ -15,6 +15,7 @@ const FieldsSource = () => {
                 <Field name={'TEXT_FIELD'} icon={'txt'}/>
                 <Field name={'SIGNATURE'} icon={'sign'}/>
                 <Field name={'RADIO'} icon={'radio'}/>
+                <Field name={'CUSTOM'} icon={'cancel'}/>
             </div>
         </div>
     );

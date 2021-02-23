@@ -33,13 +33,14 @@
 
         //Demo dependent
         window.DEFAULT_SCALE = 1.0;
-        window.LOADED_PAGES = new Map();
-        var loadingTask = pdfjsLib.getDocument('./assets/prefilled_f1040.pdf');
+        var loadingTask = pdfjsLib.getDocument('./assets/novabase.pdf');
         loadingTask.promise.then(function (pdf) {
             window.pdf = pdf;
             window.PDF_LOADED = true;
             window.dispatchEvent(new Event('PDF_LOADED'));
         });
+        //Custom loading demo
+        //window.LOADED_PAGES = new Map();
     </script>
 </head>
 <body>

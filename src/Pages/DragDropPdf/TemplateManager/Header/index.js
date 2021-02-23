@@ -1,10 +1,24 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({ scale, setScale }) => {
     const styles = getStyles();
+
+    const onScaleMore = () => {
+
+    };
+
+    const onScaleLess = () => {
+
+    };
+
     return (
         <div style={styles.root}>
-            This is a Header
+            This is a Header &nbsp;
+            <button onClick={onScaleMore}>&nbsp;Scale +&nbsp;</button>
+            &nbsp; &nbsp; &nbsp;
+            <button onClick={onScaleLess}>&nbsp;Scale -&nbsp;</button>
+            &nbsp; &nbsp; &nbsp;
+            {scale}
         </div>
     );
 };

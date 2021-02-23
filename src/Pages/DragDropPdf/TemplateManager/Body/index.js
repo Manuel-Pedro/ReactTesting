@@ -2,6 +2,7 @@ import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import FieldsSource from './FieldsSource';
+import PDFContainer from './PDFContainer';
 
 const Body = () => {
     const styles = getStyles();
@@ -9,6 +10,7 @@ const Body = () => {
         <div style={styles.root}>
             <DndProvider backend={HTML5Backend}>
                 <FieldsSource/>
+                <PDFContainer/>
             </DndProvider>
         </div>
     );
